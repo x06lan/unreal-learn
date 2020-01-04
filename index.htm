@@ -1,0 +1,85 @@
+<html>
+<head>
+	<title>unreal製作</title>
+</head>
+<body>
+	<a>練習資料</a>
+</body>
+<ul>
+	<li name='reti'><a name='ea' href="https://www.youtube.com/playlist?list=PLeoB7keAcLcNMykVfl1FJFTqpv4kFM-jy"></a> </li><br>
+	<li name='reti'><a name='ea' href="https://www.mixamo.com/"></a> </li><br>
+	<li name='reti'><a name='ea' href="https://sketchfab.com/search?q=katana&sort_by=-pertinence&type=models"></a></li> <br>
+	<li name='reti'><a name='ea' href="https://uniqe1994.pixnet.net/blog/post/374958181-%E5%8C%AF%E5%85%A5fbx%E9%80%B2%E5%85%A5unreal"></a> </li><br>
+
+	<li name='reti'><a name='ea' href="https://sketchfab.com/Katten/collections/weapon"></a> </li><br>
+	<li name='reti'><a name='ea' href="https://software.intel.com/zh-cn/articles/unreal-engine-4-optimizations-for-423-and-beyond-part-1-chaos-destruction-and-niagara"></a></li> <br>
+
+	<li name='reti'><a name='ea' href="https://www.youtube.com/watch?v=QyuvmZvsLdU"></a></li><br>
+	<li name='reti'><a name='ea' href="https://daje770729.blogspot.com/2019/07/ue4-apex-destruction.html"></a></li> <br>
+	<li name='reti'><a name='ea' href="http://www.cg.com.tw/Unreal/"></a></li> <br>
+	<li name='reti'><a name='ea' href="https://www.youtube.com/watch?v=HSGCr-xqit0&list=PLm2aqn-LqKX6VJfACurmJEK7YSwerMIa6&index=2"></a> </li><br>
+	<li name='reti'><a name='ea' href="https://x06lan.github.io/x06lan/"></a> </li><br>
+
+	
+
+
+	<script>
+
+		
+	    var text=document.getElementsByName("ea");
+	    
+	    var li=document.getElementsByName("reti");
+	    
+	    var retitle;
+	    
+	    var time=[];
+	    var texturl=[];
+		for (var i = 0; i < text.length; i++) 
+	    {
+	    	text[i].innerHTML=text[i].href
+	    }
+	    for (var i =0 ; i < text.length; i++) 
+	    {
+	    	
+	    	var g=text[i].href;
+	    	
+	    	var xhr = new XMLHttpRequest();
+
+	    	var url="https://cors-anywhere.herokuapp.com/"+g;
+		    texturl[i]=url;
+		    xhr.open('GET',url);
+		   	
+
+		    xhr.onload = function()
+		    {
+		    	
+
+		    	p=this.responseText;
+		    	
+		    	
+		    	var urlname=texturl.indexOf(this.responseURL)
+		    	
+		    	var pa=p.indexOf("<title>")+"<title>".length
+		    	var pb=p.indexOf("</title>")
+
+		    	var pg=p.slice(p.indexOf("<title>")+"<title>".length,p.indexOf("</title>"))
+
+
+		    	
+		    	
+		    	console.log(i,pg);
+		    	
+		    	
+
+		    	text[urlname].innerHTML=pg+"<br>"+text[urlname].innerHTML
+		    	text[urlname].style.color="#"+"000000";
+		    	
+
+		    	
+		    }
+		    xhr.send();
+
+		}
+  	</script>
+</ul>
+</html>
